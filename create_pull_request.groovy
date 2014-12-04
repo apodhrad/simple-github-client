@@ -21,11 +21,12 @@ def client = new RESTClient("https://api.github.com/repos/${owner}/${repo}/").wi
 	it
 }
 
-// def issue = System.console().readLine "Issue: "
+def issue = System.console().readLine "Issue: "
+def message = [ issue: issue.toString(), head: username.toString() + ":JBTISTEST-" + issue.toString(), base: "master" ] 
 
 def response =  client.post(
     path: "pulls", 
-    body: [ issue: '163', head: 'apodhrad:JBTISTEST-163', base: 'master' ],
+    body: message,
     contentType: JSON,
     requestContentType: JSON
 )
