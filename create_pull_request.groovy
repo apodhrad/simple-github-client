@@ -21,8 +21,9 @@ def client = new RESTClient("https://api.github.com/repos/${owner}/${repo}/").wi
 	it
 }
 
-def issue = System.console().readLine "Issue: "
-def message = [ issue: issue.toString(), head: username.toString() + ":JBTISTEST-" + issue.toString(), base: "master" ] 
+def issue = System.console().readLine "JBTIS Issue: "
+def gissue = System.console().readLine "GitHub Issue: "
+def message = [ issue: gissue.toString(), head: username.toString() + ":JBTIS-" + issue.toString(), base: "master" ] 
 
 def response =  client.post(
     path: "pulls", 
