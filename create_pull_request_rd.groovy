@@ -8,7 +8,7 @@ import static groovyx.net.http.ContentType.*
 def username = System.console().readLine "Username: "
 def password = System.console().readPassword "Password: "
 
-def owner = "jboss-reddeer"
+def owner = "eclipse"
 def repo = "reddeer"
 
 def client = new RESTClient("https://api.github.com/repos/${owner}/${repo}/").with {
